@@ -16,7 +16,7 @@ def demo_api(name):
 
 @demo_api_blueprint.route("/showAll", methods=['GET'])
 def show_all():
-    query = db.session.query(User).all()
+    query = User.query.all()
 
     people = []
     for p in query:
