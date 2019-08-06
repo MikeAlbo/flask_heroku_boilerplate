@@ -20,6 +20,7 @@ class StagingConfig(Config):
 
 
 class DevelopmentConfig(Config):
+    print("In Development Mode...")
     DEVELOPMENT = True
     DEBUG = True
 

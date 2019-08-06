@@ -12,7 +12,7 @@ def create_app(**config_override):
     app = Flask(__name__)
     app.config.from_object(os.environ['APP_SETTINGS'])
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    print("app settings", os.environ['APP_SETTINGS'])
+    # print("app settings", os.environ['APP_SETTINGS'])
     app.config.update(config_override)
 
     # ini the db
