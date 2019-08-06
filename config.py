@@ -13,6 +13,7 @@ class Config(object):
 
 class ProductionConfig(Config):
     DEBUG = False
+    SECRET_KEY = None
 
 
 class StagingConfig(Config):
