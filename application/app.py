@@ -19,9 +19,15 @@ def create_app(**config_override):
     db.init_app(app)
     migrate.init_app(app, db)
 
-    @app.route("/")
-    def test_route():
-        return "test route working \n"
+    # init the blueprint
+    from application.api.api import demo_api_blueprint
+
+    # register the blueprint
+    app.register_blueprint(demo_api_blueprint)
+
+    # @app.route("/")
+    # def test_route():
+    #     return "test route working \n"
 
     return app
 
