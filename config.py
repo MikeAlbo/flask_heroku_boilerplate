@@ -14,6 +14,7 @@ class Config(object):
 class ProductionConfig(Config):
     DEBUG = False
     SECRET_KEY = None
+    SQLALCHEMY_DATABASE_URI = None
 
 
 class StagingConfig(Config):
