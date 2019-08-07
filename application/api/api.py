@@ -6,7 +6,7 @@ from application.models.userModel import User
 demo_api_blueprint = Blueprint('demo_api', __name__, url_prefix='/api')
 
 
-@demo_api_blueprint.route("/<string:name>")
+@demo_api_blueprint.route("/<string:name>", methods=['PUT'])
 def demo_api(name):
     user = User(name)
     db.session.add(user)
@@ -14,7 +14,7 @@ def demo_api(name):
     return jsonify({"name": user.name, "id": user.id})
 
 
-@demo_api_blueprint.route("/showAll", methods=['GET'])
+@demo_api_blueprint.route("/", methods=['GET'])
 def show_all():
     query = User.query.all()
 
