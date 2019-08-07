@@ -6,8 +6,8 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = None
-    SQLALCHEMY_DATABASE_URI = None
+    SECRET_KEY = ""
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
 
 class LocalConfig(Config):
@@ -15,8 +15,8 @@ class LocalConfig(Config):
     try:
         from local_env.secrets import SECRET_KEY, DATABASE_URL
         SECRET_KEY = SECRET_KEY
-        SQLALCHEMY_DATABASE_URI = DATABASE_URL
-    except:
+        DATABASE_URL = DATABASE_URL
+    except ImportError:
         pass
 
 
