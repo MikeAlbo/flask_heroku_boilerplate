@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import os
@@ -20,10 +20,14 @@ def create_app(**config_override):
     migrate.init_app(app, db)
 
     # init the blueprint
-    from application.api.api import demo_api_blueprint
+    from application.api.api import api_blueprint
 
     # register the blueprint
-    app.register_blueprint(demo_api_blueprint)
+    app.register_blueprint(api_blueprint, url_prefix='/api')
+
+    @app.route("/", methods=["Get"])
+    def re_dir():
+        return redirect(url_for('demo_api.get_users'))
 
     # @app.route("/")
     # def test_route():
