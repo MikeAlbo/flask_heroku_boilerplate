@@ -12,7 +12,7 @@ class Config(object):
 
 class LocalConfig(Config):
     """ here, set any api keys or secrets that are not committed to git"""
-    from local_env.config import SECRET_KEY, DATABASE_URL
+    from local_env.secrets import SECRET_KEY, DATABASE_URL
     SECRET_KEY = SECRET_KEY
     SQLALCHEMY_DATABASE_URI = DATABASE_URL
 
