@@ -27,7 +27,7 @@ def create_app(**config_override):
 
     @app.route("/", methods=["Get"])
     def re_dir():
-        return redirect(url_for('demo_api.get_users'))
+        return redirect(url_for('api.get_users'))
 
     # @app.route("/")
     # def test_route():
