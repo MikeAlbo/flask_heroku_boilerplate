@@ -6,23 +6,30 @@ class Config(object):
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = 'this-really-needs-to-be-changed'
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
+    SECRET_KEY = None
+    SQLALCHEMY_DATABASE_URI = None
+
+
+class LocalConfig(Config):
+    """ here, set any api keys or secrets that are not committed to git"""
+    from local_env.config import SECRET_KEY, DATABASE_URL
+    SECRET_KEY = SECRET_KEY
+    SQLALCHEMY_DATABASE_URI = DATABASE_URL
 
 
 class ProductionConfig(Config):
     DEBUG = False
+
 
 class StagingConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
 
 
-class DevelopmentConfig(Config):
-    print("In Development Mode...")
+class DevelopmentConfig(LocalConfig):
     DEVELOPMENT = True
     DEBUG = True
 
 
-class TestingConfig(Config):
+class TestingConfig(LocalConfig):
     TESTING = True

@@ -6,7 +6,7 @@ __pycache__/
 .idea
 
 # dev enviroment keys
-session/
+local_env
 
 # C extensions
 *.so
