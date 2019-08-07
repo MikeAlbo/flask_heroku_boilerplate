@@ -1,5 +1,4 @@
-from flask import Flask, redirect, url_for, request
-from application.helpers.index_redirect import index_redirect
+from flask import Flask, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import os
