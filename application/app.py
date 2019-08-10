@@ -29,7 +29,3 @@ def create_app(**config_override):
         return redirect(url_for('api.get_users'))
 
     return app
-
-
-
-

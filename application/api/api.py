@@ -62,6 +62,7 @@ def update_user(id):
 
 @api_blueprint.route("/users/<int:id>", methods=['DELETE'])
 def delete_user(id):
+    """delete the user from the database"""
     query = User.query.get(id)
 
     if not query:
